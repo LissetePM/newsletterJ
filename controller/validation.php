@@ -11,7 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
       $insertar = "INSERT INTO Email(Email) VALUES ('$email')";
       $query= mysqli_query($conn, $insertar);
-      header('Location: ../static/finishregister.html');
+      echo "$query";
+     // header('Location: ../static/finishregister.html');
     } catch (mysqli_sql_exception $e) {
       if(strpos($e, $error_duplicateEntry, 0)){
           header('Location: ../static/mailregistered.html');
